@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files and secrets (keep .env.example committed)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test / tooling output
+coverage/
+.vite/
+
+# Uploaded product images (added in Phase 3)
+server/uploads/
+
+# Editor and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local authentication diagnostic scripts
+server/auth-diag*.mjs
+
+# Local authentication diagnostic scripts
+server/auth-diag*.mjs

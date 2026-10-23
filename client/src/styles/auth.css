@@ -1,0 +1,458 @@
+/* ============================================================
+   Authentication pages and account area
+   ============================================================ */
+
+.auth-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  min-height: calc(100vh - 72px);
+  background: var(--tint);
+}
+
+.auth-main {
+  display: grid;
+  place-items: center;
+  padding: clamp(32px, 6vw, 64px) 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 540px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 38px);
+  box-shadow: 0 24px 60px rgba(11, 31, 58, 0.09);
+}
+
+.auth-back {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.auth-back:hover {
+  color: var(--navy-900);
+}
+
+.auth-card h1 {
+  margin-top: 8px;
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.auth-subtitle {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #cfdae7;
+  border-radius: 9px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.94rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-field textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #93a3b6;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.16);
+}
+
+.form-hint {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.form-hint strong {
+  color: var(--navy-800);
+}
+
+.optional {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.form-error,
+.form-success {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.form-error {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.form-success {
+  color: var(--teal-700);
+  background: #ecfdf9;
+  border: 1px solid #99f6e4;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.auth-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-footer {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.auth-footer a {
+  color: var(--teal-700);
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Role switch ---------- */
+
+.role-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin-top: 24px;
+  padding: 4px;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+
+.role-switch__option {
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.role-switch__option.is-active {
+  background: var(--white);
+  color: var(--navy-900);
+  box-shadow: 0 2px 6px rgba(11, 31, 58, 0.1);
+}
+
+.role-switch__option:hover:not(.is-active) {
+  color: var(--navy-900);
+}
+
+/* ---------- Aside ---------- */
+
+.auth-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 36px;
+  padding: clamp(32px, 5vw, 64px);
+  background:
+    radial-gradient(circle at 80% 10%, rgba(45, 212, 191, 0.18), transparent 45%),
+    linear-gradient(160deg, var(--navy-950), var(--navy-900) 70%);
+  color: var(--white);
+}
+
+.auth-aside__mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  background: rgba(45, 212, 191, 0.14);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  color: var(--teal-300);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.auth-aside h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.auth-aside > div > p {
+  margin-top: 12px;
+  max-width: 38ch;
+  color: #b9c8db;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.auth-aside__roles {
+  display: grid;
+  gap: 10px;
+}
+
+.auth-aside__roles li {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.auth-aside__roles strong {
+  display: block;
+  color: var(--teal-300);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.auth-aside__roles span {
+  color: #c2d1e2;
+  font-size: 0.86rem;
+}
+
+.auth-aside__note {
+  max-width: 40ch;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #8fa6c0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* ---------- Account page ---------- */
+
+.account-page {
+  background: var(--tint);
+  padding: clamp(32px, 5vw, 56px) 0 clamp(48px, 7vw, 80px);
+  min-height: calc(100vh - 72px);
+}
+
+.account-page__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.account-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 3vw, 32px);
+  box-shadow: 0 14px 40px rgba(11, 31, 58, 0.06);
+}
+
+.account-card h1 {
+  margin-top: 8px;
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  letter-spacing: -0.02em;
+}
+
+.account-card h2 {
+  margin-top: 8px;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+}
+
+.account-email {
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  word-break: break-all;
+}
+
+.account-details {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.account-details > div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+}
+
+.account-details dt {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-details dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.account-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.role-badge {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  background: #eef2f8;
+  color: var(--navy-800);
+  border: 1px solid #dbe3ef;
+}
+
+.role-badge--seller {
+  background: #ecfdf9;
+  color: var(--teal-700);
+  border-color: #99f6e4;
+}
+
+.role-badge--driver {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.role-badge--admin {
+  background: var(--navy-900);
+  color: var(--teal-300);
+  border-color: var(--navy-800);
+}
+
+.button--outline {
+  background: var(--white);
+  border-color: #cfdae7;
+  color: var(--navy-800);
+}
+
+.button--outline:hover {
+  border-color: var(--teal-500);
+  color: var(--teal-700);
+}
+
+.account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.page-loading {
+  display: grid;
+  place-items: center;
+  min-height: 55vh;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.page-loading h1 {
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.page-loading .button {
+  margin-top: 18px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-aside {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .auth-main {
+    padding: 24px 16px 40px;
+  }
+
+  .auth-card {
+    padding: 24px 20px;
+  }
+
+  .account-details > div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}
